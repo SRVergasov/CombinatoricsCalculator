@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CombinatoricsCalculator</string>
+    <string name="fnc_name_perm">Permutations</string>
+    <string name="fnc_name_permRep">PermutationsWithRep</string>
+    <string name="fnc_name_plac">Placements</string>
+    <string name="fnc_name_placRep">PlacementsWithRep</string>
+    <string name="fnc_name_comb">Combinations</string>
+    <string name="fnc_name_combRep">CombinationsWithRep</string>
 </resources>

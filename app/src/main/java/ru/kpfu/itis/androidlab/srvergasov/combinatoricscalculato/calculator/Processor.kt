@@ -1,37 +1,44 @@
 package ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculato.calculator
 
-class Processor {
+class Processor(
+    private val permutations: String = "Permutations",
+    private val permutationsRep: String = "PermutationsWithRep",
+    private val placements: String = "Placements",
+    private val placementsRep: String = "PlacementsWithRep",
+    private val combinations: String = "Combinations",
+    private val combinationsRep: String = "CombinationsWithRep",
+) {
     private val validator = Validator()
     private val calculator = Calculator()
 
     fun process(funcName: String, values: IntArray): String {
         when (funcName) {
-            "Permutations" -> {
+            permutations -> {
                 if (validator.validatePermutations(values[0])) {
                     return calculator.permutations(values[0]).toString()
                 }
             }
-            "PermutationsWithRep" -> {
+            permutationsRep -> {
                 if (validator.validatePermutationsWithRep(values)) {
                     return calculator.permutationsWithRep(values).toString()
                 }
             }
-            "Placements" -> {
+            placements -> {
                 if (validator.validatePlacements(values[0], values[1])) {
                     return calculator.placements(values[0], values[1]).toString()
                 }
             }
-            "PlacementsWithRep" -> {
+            placementsRep -> {
                 if (validator.validatePlacementsWithRep(values[0], values[1])) {
                     return calculator.placementsWithRep(values[0], values[1]).toString()
                 }
             }
-            "Combinations" -> {
+            combinations -> {
                 if (validator.validateCombinations(values[0], values[1])) {
                     return calculator.combinations(values[0], values[1]).toString()
                 }
             }
-            "CombinationsWithRep" -> {
+            combinationsRep -> {
                 if (validator.validateCombinationsWithRep(values[0], values[1])) {
                     return calculator.combinationsWithRep(values[0], values[1]).toString()
                 }
