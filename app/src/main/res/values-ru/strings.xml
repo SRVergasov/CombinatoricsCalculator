@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CombinatoricsCalculator</string>
+    <string name="fnc_name_perm">Перестановки</string>
+    <string name="fnc_name_permRep">Перестановки с повторениями</string>
+    <string name="fnc_name_plac">Размещения</string>
+    <string name="fnc_name_placRep">Размещения с повторениями</string>
+    <string name="fnc_name_comb">Сочетания</string>
+    <string name="fnc_name_combRep">Сочетания с повторениями</string>
+</resources>

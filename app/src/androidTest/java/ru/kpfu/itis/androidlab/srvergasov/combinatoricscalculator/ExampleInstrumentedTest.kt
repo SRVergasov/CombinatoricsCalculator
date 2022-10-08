@@ -1,4 +1,4 @@
-package ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculato
+package ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
