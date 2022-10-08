@@ -1,9 +1,9 @@
-package ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculato
+package ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculato.calculator.Processor
-import ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculato.databinding.ActivityMainBinding
+import ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator.calculator.Processor
+import ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,9 +14,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initProcessor()
+
+        with(binding) {
+            btn.setOnClickListener {
+                et1.setText(processor.process(et1.text.toString(), IntArray(2).plus(et2.text.toString().toInt())))
+            }
+        }
     }
 
-    fun initProcessor() {
+    private fun initProcessor() {
         processor = Processor(
             getString(R.string.fnc_name_perm),
             getString(R.string.fnc_name_permRep),

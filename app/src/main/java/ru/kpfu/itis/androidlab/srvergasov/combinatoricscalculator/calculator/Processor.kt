@@ -1,4 +1,6 @@
-package ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculato.calculator
+package ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator.calculator
+
+import android.util.Log
 
 class Processor(
     private val permutations: String = "Permutations",
@@ -44,6 +46,6 @@ class Processor(
                 }
             }
         }
-        return "Something wrong"
+        return "Wrong data inputted"
     }
 }

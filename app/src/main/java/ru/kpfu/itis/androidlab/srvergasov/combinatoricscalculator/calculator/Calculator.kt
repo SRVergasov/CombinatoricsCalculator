@@ -1,4 +1,4 @@
-package ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculato.calculator
+package ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator.calculator
 
 import java.math.BigInteger
 
