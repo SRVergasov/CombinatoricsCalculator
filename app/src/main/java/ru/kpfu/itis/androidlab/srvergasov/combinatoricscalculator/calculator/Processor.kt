@@ -1,17 +1,30 @@
 package ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator.calculator
 
+import android.content.Context
 import android.util.Log
+import ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator.R
 
 class Processor(
-    private val permutations: String = "Permutations",
-    private val permutationsRep: String = "PermutationsWithRep",
-    private val placements: String = "Placements",
-    private val placementsRep: String = "PlacementsWithRep",
-    private val combinations: String = "Combinations",
-    private val combinationsRep: String = "CombinationsWithRep",
+    private val context: Context
 ) {
     private val validator = Validator()
     private val calculator = Calculator()
+
+    private var permutations = ""
+    private var permutationsRep = ""
+    private var placements = ""
+    private var placementsRep = ""
+    private var combinations = ""
+    private var combinationsRep = ""
+
+    init {
+        permutations = context.getString(R.string.fnc_name_perm)
+        permutationsRep = context.getString(R.string.fnc_name_permRep)
+        placements = context.getString(R.string.fnc_name_plac)
+        placementsRep = context.getString(R.string.fnc_name_placRep)
+        combinations = context.getString(R.string.fnc_name_comb)
+        combinationsRep = context.getString(R.string.fnc_name_combRep)
+    }
 
     fun process(funcName: String, values: IntArray): String {
         when (funcName) {
@@ -46,6 +59,6 @@ class Processor(
                 }
             }
         }
-        return "Wrong data inputted"
+        return "Something wrong"
     }
 }
