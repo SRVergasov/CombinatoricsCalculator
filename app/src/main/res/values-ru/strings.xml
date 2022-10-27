@@ -7,4 +7,8 @@
     <string name="fnc_name_placRep">Размещения с повторениями</string>
     <string name="fnc_name_comb">Сочетания</string>
     <string name="fnc_name_combRep">Сочетания с повторениями</string>
+    <string name="btn_txt">Посчитать</string>
+    <string name="et1_txt">введите n</string>
+    <string name="et2_txt">введите m</string>
+    <string name="et3_txt">введите n1,n2,n3…</string>
 </resources>

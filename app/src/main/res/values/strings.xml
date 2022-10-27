@@ -6,4 +6,8 @@
     <string name="fnc_name_placRep">PlacementsWithRep</string>
     <string name="fnc_name_comb">Combinations</string>
     <string name="fnc_name_combRep">CombinationsWithRep</string>
+    <string name="btn_txt">Resolve</string>
+    <string name="et1_txt">write n</string>
+    <string name="et2_txt">write m</string>
+    <string name="et3_txt">write n1,n2,n3…</string>
 </resources>
