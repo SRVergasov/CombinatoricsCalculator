@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.Log
 import ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator.R
 
-class Processor(
+class CalculatorProcessor(
     private val context: Context
 ) {
     private val validator = Validator()
