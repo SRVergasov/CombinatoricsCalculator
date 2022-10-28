@@ -9,5 +9,5 @@
     <string name="btn_txt">Resolve</string>
     <string name="et1_txt">write n</string>
     <string name="et2_txt">write m</string>
-    <string name="et3_txt">write n1,n2,n3…</string>
+    <string name="et3_txt">write n,n1,n2…</string>
 </resources>

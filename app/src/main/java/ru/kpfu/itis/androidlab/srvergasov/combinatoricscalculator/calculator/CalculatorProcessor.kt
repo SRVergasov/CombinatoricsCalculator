@@ -1,7 +1,6 @@
 package ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator.calculator
 
 import android.content.Context
-import android.util.Log
 import ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator.R
 
 class CalculatorProcessor(
@@ -59,6 +58,6 @@ class CalculatorProcessor(
                 }
             }
         }
-        return "Something wrong"
+        return validator.getMessage()
     }
 }
