@@ -6,7 +6,7 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 
 class SpinnerProcessor(
-    private val context: Context
+    private val context: Context,
 ) {
 
     fun processSpinners(

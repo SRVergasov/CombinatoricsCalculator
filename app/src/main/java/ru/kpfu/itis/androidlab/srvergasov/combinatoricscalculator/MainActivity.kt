@@ -4,27 +4,32 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.get
 import ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator.calculator.CalculatorProcessor
 import ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator.databinding.ActivityMainBinding
+import ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator.input.InputValidator
 import ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator.spinner.SpinnerProcessor
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var calculatorProcessor: CalculatorProcessor
+    private lateinit var inputValidator: InputValidator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         calculatorProcessor = CalculatorProcessor(this)
+        inputValidator = InputValidator()
         initSpinner()
+        setListeners()
+    }
 
+    private fun setListeners() {
         with(binding) {
             spinnerFncName.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-
+                    // nothing
                 }
 
                 override fun onItemSelected(
@@ -38,17 +43,35 @@ class MainActivity : AppCompatActivity() {
 
             }
             btn.setOnClickListener {
-                tvAnswer.text = calculatorProcessor.process(
-                    spinnerFncName.selectedItem.toString(),
-                    getDataList().toIntArray()
-                )
+                val selectedFun = spinnerFncName.selectedItem.toString()
+                val et1Text = et1.text.toString()
+                val et2Text = et2.text.toString()
+                val et3Text = et3.text.toString()
+                if (selectedFun == getString(R.string.fnc_name_permRep)
+                    && !inputValidator.validatePermRep(et3Text)
+                ) {
+                    tvAnswer.text = inputValidator.getMessage()
+                } else if (selectedFun == getString(R.string.fnc_name_perm)
+                    && !inputValidator.validatePerm(et1Text)
+                ) {
+                    tvAnswer.text = inputValidator.getMessage()
+                } else if (!inputValidator.validateFun2(et1Text, et2Text) &&
+                    selectedFun != getString(R.string.fnc_name_perm) &&
+                    selectedFun != getString(R.string.fnc_name_permRep)
+                ) {
+                    tvAnswer.text = inputValidator.getMessage()
+                } else {
+                    tvAnswer.text = calculatorProcessor.process(
+                        spinnerFncName.selectedItem.toString(),
+                        getDataList().toIntArray()
+                    )
+                }
             }
         }
     }
 
     private fun getDataList(): MutableList<Int> {
         with(binding) {
-            // TODO: converter!!!!!
             val data = mutableListOf<Int>()
             et1.text?.let {
                 if (it.toString().isNotEmpty()) {
