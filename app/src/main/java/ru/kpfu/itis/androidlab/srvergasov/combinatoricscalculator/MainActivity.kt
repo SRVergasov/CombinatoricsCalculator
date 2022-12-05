@@ -1,9 +1,11 @@
 package ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.internal.TextWatcherAdapter
 import ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator.calculator.CalculatorProcessor
 import ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator.databinding.ActivityMainBinding
 import ru.kpfu.itis.androidlab.srvergasov.combinatoricscalculator.input.InputValidator
@@ -23,6 +25,30 @@ class MainActivity : AppCompatActivity() {
         inputValidator = InputValidator()
         initSpinner()
         setListeners()
+        setTextWatchers()
+    }
+
+    private fun setTextWatchers() {
+        with(binding) {
+            et1.addTextChangedListener(@SuppressLint("RestrictedApi")
+            object : TextWatcherAdapter() {
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                    if (s.length > 5) {
+                        et1.setText(s.subSequence(0, 5))
+                        et1.setSelection(5)
+                    }
+                }
+            })
+            et2.addTextChangedListener(@SuppressLint("RestrictedApi")
+            object : TextWatcherAdapter() {
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                    if (s.length > 5) {
+                        et2.setText(s.subSequence(0, 5))
+                        et2.setSelection(5)
+                    }
+                }
+            })
+        }
     }
 
     private fun setListeners() {
