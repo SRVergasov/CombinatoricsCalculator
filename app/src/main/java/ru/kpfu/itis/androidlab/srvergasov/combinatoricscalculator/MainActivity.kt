@@ -93,6 +93,9 @@ class MainActivity : AppCompatActivity() {
                     )
                 }
             }
+            btnClear.setOnClickListener {
+                setEtVisibility(spinnerFncName.selectedItem.toString())
+            }
         }
     }
 

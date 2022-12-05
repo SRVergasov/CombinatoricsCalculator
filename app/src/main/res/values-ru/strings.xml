@@ -11,4 +11,5 @@
     <string name="et1_txt">введите n</string>
     <string name="et2_txt">введите m</string>
     <string name="et3_txt">введите n1,n2,n3…</string>
+    <string name="btn_clear_txt">Очистить</string>
 </resources>
