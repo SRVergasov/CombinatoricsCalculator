@@ -37,7 +37,17 @@ class Validator {
         return true
     }
 
-    fun validatePlacementsWithRep(n: Int, m: Int) = validatePlacements(n, m)
+    fun validatePlacementsWithRep(n: Int, m: Int): Boolean {
+        if (n < 0 || n > 999) {
+            message = "число n за пределами допустимых значений (0 - 999)"
+            return false
+        }
+        if (m < 0 || m > 999) {
+            message = "число m за пределами допустимых значений (0 - 999)"
+            return false
+        }
+        return true
+    }
     fun validateCombinations(n: Int, m: Int) = validatePlacements(n, m)
     fun validateCombinationsWithRep(n: Int, m: Int): Boolean {
         if (n < 1 || n > 999) {
@@ -50,10 +60,6 @@ class Validator {
         }
         if (n == 1 && m == 0) {
             return true
-        }
-        if (n < m) {
-            message = "число n должно быть больше числа m"
-            return false
         }
         return true
     }
